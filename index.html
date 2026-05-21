@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROJERU | AI Talent & Global Growth Partner</title>
+  <meta name="description" content="ROJERU helps startups and enterprises scale with Agentic AI talent, offshore AI execution teams, and global business enablement across the US and UK markets." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #050816;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(5, 8, 22, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #7c9cff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #d8d8d8;
+      font-size: 15px;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #7c9cff, #9b7cff);
+      color: white;
+      font-weight: 600;
+      display: inline-block;
+      transition: 0.3s ease;
+      box-shadow: 0 10px 30px rgba(124,156,255,0.25);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(124,156,255,0.35);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background:
+        radial-gradient(circle at top left, rgba(124,156,255,0.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(155,124,255,0.18), transparent 35%),
+        #050816;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      padding-top: 80px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      color: #c7d2ff;
+      font-size: 14px;
+      margin-bottom: 24px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    h1 {
+      font-size: 72px;
+      line-height: 1.05;
+      margin-bottom: 24px;
+      font-weight: 800;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, #7c9cff, #b38cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: #b9c0d4;
+      font-size: 20px;
+      margin-bottom: 36px;
+      max-width: 680px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .secondary-btn {
+      padding: 12px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #ffffff;
+      transition: 0.3s ease;
+    }
+
+    .secondary-btn:hover {
+      background: rgba(255,255,255,0.05);
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: 42px;
+      margin-bottom: 18px;
+      font-weight: 800;
+    }
+
+    .section-subtitle {
+      color: #b9c0d4;
+      max-width: 700px;
+      margin-bottom: 50px;
+      font-size: 18px;
+    }
+
+    .services-grid,
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 32px;
+      border-radius: 24px;
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(124,156,255,0.35);
+    }
+
+    .card h3 {
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
+
+    .card p {
+      color: #b9c0d4;
+      font-size: 16px;
+    }
+
+    .industries {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .industry-pill {
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #dce2ff;
+      font-size: 15px;
+    }
+
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(124,156,255,0.12), rgba(155,124,255,0.12));
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cta-section h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      color: #c4cae0;
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 36px;
+      font-size: 18px;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: #7d859e;
+      font-size: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    @media(max-width: 768px) {
+      h1 {
+        font-size: 48px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section-title {
+        font-size: 34px;
+      }
+
+      .cta-section h2 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">ROJER<span>U</span></div>
+
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#why">Why ROJERU</a>
+          <a href="#industries">Industries</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="tag">
+          AI Talent • Agentic AI • Global Business Enablement
+        </div>
+
+        <h1>
+          Building <span>AI Capabilities</span> for Startups Ready to Scale Globally.
+        </h1>
+
+        <p>
+          ROJERU partners with startups and growing enterprises across the US and UK to help them scale through Agentic AI talent, offshore execution teams, and strategic business enablement.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="btn">Partner With ROJERU</a>
+          <a href="#services" class="secondary-btn">Explore Services</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+
+      <h2 class="section-title">What We Do</h2>
+
+      <p class="section-subtitle">
+        We help startups move faster with AI-native execution capabilities, specialized talent networks, and global business support.
+      </p>
+
+      <div class="services-grid">
+
+        <div class="card">
+          <h3>Agentic AI Talent</h3>
+          <p>
+            Access curated AI engineers, automation specialists, prompt engineers, and GenAI developers experienced in building modern AI-native systems.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Offshore AI Pods</h3>
+          <p>
+            Dedicated offshore execution teams designed for startups that need fast-moving AI product development without enterprise overhead.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Global Business Enablement</h3>
+          <p>
+            We help Indian startups and technology firms connect with business opportunities in the US and UK markets through strategic networking and growth partnerships.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>AI Consulting</h3>
+          <p>
+            Advisory support for startups exploring GenAI implementation, workflow automation, AI adoption strategy, and scalable AI operations.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="container">
+
+      <h2 class="section-title">Why ROJERU</h2>
+
+      <p class="section-subtitle">
+        Modern startups need more than staffing agencies. They need strategic execution partners who understand AI transformation, startup speed, and global business dynamics.
+      </p>
+
+      <div class="why-grid">
+
+        <div class="card">
+          <h3>AI-First Thinking</h3>
+          <p>
+            We focus on GenAI and Agentic AI capabilities that align with the next generation of intelligent business systems.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Startup Execution Speed</h3>
+          <p>
+            Lean, agile, and execution-focused support designed specifically for fast-growing startups and innovation teams.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Global Market Vision</h3>
+          <p>
+            Built with a global mindset to help companies expand partnerships, capabilities, and opportunities across international markets.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="industries">
+    <div class="container">
+
+      <h2 class="section-title">Focused Industries</h2>
+
+      <p class="section-subtitle">
+        ROJERU is strategically focused on industries where AI transformation and operational scale are rapidly accelerating.
+      </p>
+
+      <div class="industries">
+        <div class="industry-pill">Healthcare</div>
+        <div class="industry-pill">Pharmaceuticals</div>
+        <div class="industry-pill">AI SaaS</div>
+        <div class="industry-pill">HealthTech</div>
+        <div class="industry-pill">Automation Platforms</div>
+        <div class="industry-pill">Enterprise AI</div>
+        <div class="industry-pill">Startup Ecosystems</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <div class="container">
+
+      <h2>Let’s Build the Future of AI Together.</h2>
+
+      <p>
+        Whether you're scaling an AI startup, exploring offshore execution capabilities, or expanding into global markets — ROJERU is ready to partner with you.
+      </p>
+
+      <a href="mailto:hello@rojeru.in" class="btn">hello@rojeru.in</a>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 ROJERU. Building AI capabilities for the next generation of global startups.
+    </div>
+  </footer>
+
+  <script>
+    // Dark / Light Mode Toggle
+    const toggleTheme = () => {
+      document.body.classList.toggle('light-mode');
+    };
+
+    // Scroll Animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+
+    document.querySelectorAll('.card, .section-title, .section-subtitle').forEach((el) => {
+      el.classList.add('hidden');
+      observer.observe(el);
+    });
+  </script>
+
+  <style>
+    .hidden {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: linear-gradient(135deg, #7c9cff, #9b7cff);
+      color: white;
+      border: none;
+      padding: 14px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      z-index: 999;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(124,156,255,0.35);
+    }
+
+    .light-mode {
+      background: #ffffff;
+      color: #050816;
+    }
+
+    .light-mode .card,
+    .light-mode header,
+    .light-mode .industry-pill {
+      background: #f5f7ff;
+      color: #050816;
+      border-color: rgba(0,0,0,0.08);
+    }
+
+    .light-mode .hero,
+    .light-mode .cta-section {
+      background: #ffffff;
+    }
+
+    .light-mode p,
+    .light-mode .section-subtitle,
+    .light-mode .card p {
+      color: #4f566b;
+    }
+
+    .founder-section {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .founder-card {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      align-items: center;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 40px;
+    }
+
+    .founder-image {
+      width: 100%;
+      height: 320px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #7c9cff, #9b7cff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .founder-content h3 {
+      font-size: 36px;
+      margin-bottom: 18px;
+    }
+
+    .contact-form {
+      max-width: 760px;
+      margin: auto;
+      display: grid;
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: white;
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+    }
+
+    .contact-form textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      border: none;
+      cursor: pointer;
+    }
+
+    @media(max-width: 768px) {
+      .founder-card {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Mode</button>
+
+  <section class="founder-section">
+    <div class="container">
+      <h2 class="section-title">Founder Vision</h2>
+
+      <div class="founder-card">
+
+        <div class="founder-image">
+          ROJERU
+        </div>
+
+        <div class="founder-content">
+          <h3>Built for the Next Generation of AI Startups.</h3>
+
+          <p>
+            ROJERU was founded with a vision to bridge global startup opportunities with India’s growing AI talent ecosystem. The company focuses on helping startups scale through Agentic AI capabilities, offshore AI execution teams, and strategic business enablement across the US and UK markets.
+          </p>
+
+          <br>
+
+          <p>
+            The mission is simple — help startups move faster, build smarter, and scale globally through AI-first execution.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="inquiry">
+    <div class="container">
+
+      <h2 class="section-title">Client Inquiry</h2>
+
+      <p class="section-subtitle">
+        Tell us about your startup, AI requirements, or global expansion goals. Our team will get back to you.
+      </p>
+
+      <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Business Email" required>
+        <input type="text" name="company" placeholder="Company Name">
+        <textarea name="message" placeholder="Tell us how ROJERU can support your business"></textarea>
+        <button type="submit" class="btn">Submit Inquiry</button>
+      </form>
+
+    </div>
+  </section>
+
+</body>
+</html>
