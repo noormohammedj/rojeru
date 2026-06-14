@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalaikoodam — School Experiential Day Programme</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&family=Lora:ital,wght@1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terra:   #C1440E;
+    --terra-lt:#E8703A;
+    --leaf:    #3A6B35;
+    --leaf-lt: #5D9B56;
+    --cream:   #FBF5EC;
+    --sand:    #EDE0CC;
+    --bark:    #2C1A0E;
+    --muted:   #6B5744;
+    --white:   #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--bark);
+    line-height: 1.6;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--bark);
+    color: var(--white);
+    padding: 72px 32px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(193,68,14,0.35) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(58,107,53,0.25) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--terra-lt);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 68px);
+    font-weight: 900;
+    line-height: 1.08;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .hero h1 span { color: var(--terra-lt); }
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: clamp(17px, 2.2vw, 22px);
+    color: #C9B8A8;
+    max-width: 600px;
+    margin: 0 auto 32px;
+    position: relative;
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+    margin-bottom: 40px; position: relative;
+  }
+  .hero-tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 13px;
+    color: #E0D4C8;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: var(--terra);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 36px;
+    border-radius: 4px;
+    text-decoration: none;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .hero-cta:hover { background: var(--terra-lt); }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--leaf);
+    color: var(--white);
+    padding: 18px 32px;
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 32px;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13.5px; font-weight: 500;
+  }
+  .trust-item .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+    color: #A8D5A2;
+  }
+  .trust-sep { color: rgba(255,255,255,0.3); font-size: 20px; }
+
+  /* ── SECTIONS ── */
+  section { padding: 72px 24px; }
+  .container { max-width: 960px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--terra);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700; line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .section-lead {
+    font-size: 16.5px; color: var(--muted);
+    max-width: 660px; margin-bottom: 48px;
+  }
+
+  /* ── PROGRAMME TIMELINE ── */
+  .programme { background: var(--white); }
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2px;
+    border: 2px solid var(--sand);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .tl-item {
+    padding: 24px 22px;
+    background: var(--white);
+    border-right: 2px solid var(--sand);
+    border-bottom: 2px solid var(--sand);
+    transition: background 0.18s;
+  }
+  .tl-item:hover { background: #FEF9F4; }
+  .tl-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px; font-weight: 700;
+    color: var(--terra); letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .tl-icon { font-size: 26px; margin-bottom: 8px; line-height: 1; }
+  .tl-name {
+    font-weight: 600; font-size: 15px;
+    margin-bottom: 6px; color: var(--bark);
+  }
+  .tl-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* ── OUTCOMES ── */
+  .outcomes { background: var(--bark); color: var(--white); }
+  .outcomes .section-title { color: var(--white); }
+  .outcomes .section-lead { color: #C9B8A8; }
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .outcome-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 22px 20px;
+  }
+  .outcome-icon { font-size: 28px; margin-bottom: 10px; }
+  .outcome-title { font-weight: 600; font-size: 15px; margin-bottom: 6px; color: var(--terra-lt); }
+  .outcome-body { font-size: 13px; color: #B0A090; line-height: 1.55; }
+
+  /* ── PRICING ── */
+  .pricing { background: var(--cream); }
+  .price-box {
+    background: var(--white);
+    border: 2px solid var(--sand);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .price-header {
+    background: var(--terra);
+    color: var(--white);
+    padding: 20px 28px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  .price-header-title { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; opacity: 0.85; }
+  .price-badge {
+    background: rgba(255,255,255,0.2);
+    border-radius: 100px;
+    padding: 4px 14px;
+    font-size: 12px; font-weight: 600;
+  }
+  .price-body { padding: 32px 28px; }
+  .price-main {
+    display: flex; align-items: flex-end; gap: 10px; margin-bottom: 8px;
+  }
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px; font-weight: 900; color: var(--terra); line-height: 1;
+  }
+  .price-per { font-size: 14px; color: var(--muted); padding-bottom: 8px; }
+  .price-was {
+    font-size: 14px; color: var(--muted); margin-bottom: 24px;
+  }
+  .price-was s { color: #B09080; }
+  .price-includes {
+    border-top: 1px solid var(--sand); padding-top: 20px; margin-bottom: 20px;
+  }
+  .price-includes-title { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .price-include-item {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 14px; color: var(--bark); margin-bottom: 8px;
+  }
+  .price-include-item .chk { color: var(--leaf); font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .price-note {
+    font-size: 12px; color: #A09080; margin-top: 16px;
+    border-top: 1px solid var(--sand); padding-top: 12px;
+  }
+  .min-note {
+    background: #FEF3EC;
+    border: 1px solid #F0C8A8;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    color: #7A3A10;
+    margin-top: 20px;
+    max-width: 680px;
+    margin-left: auto; margin-right: auto;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  /* ── WHY KALAIKOODAM ── */
+  .why { background: var(--sand); }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  .why-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 26px 22px;
+    border-left: 4px solid var(--leaf);
+  }
+  .why-card-icon { font-size: 28px; margin-bottom: 10px; }
+  .why-card-title { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  .why-card-body { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+
+  /* ── LOCATION ── */
+  .location-wrap {
+    background: var(--white);
+    border: 2px solid var(--sand);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex; flex-wrap: wrap;
+  }
+  .location-map {
+    flex: 1 1 300px;
+    min-height: 260px;
+    background: #E8DDD0;
+    position: relative;
+  }
+  .location-map iframe {
+    width: 100%; height: 100%; min-height: 260px;
+    border: none; display: block;
+  }
+  .location-info { flex: 1 1 260px; padding: 28px 26px; }
+  .location-info h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 10px; }
+  .location-info p { font-size: 14px; color: var(--muted); margin-bottom: 18px; line-height: 1.6; }
+  .location-link {
+    display: inline-block;
+    background: var(--leaf);
+    color: var(--white);
+    font-size: 13px; font-weight: 600;
+    padding: 10px 20px; border-radius: 4px;
+    text-decoration: none;
+  }
+  .location-link:hover { background: var(--leaf-lt); }
+
+  /* ── MEDIA ── */
+  .media { background: var(--cream); }
+  .media-card {
+    background: var(--white);
+    border: 2px solid var(--sand);
+    border-radius: 8px;
+    padding: 28px 28px;
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;
+  }
+  .media-badge {
+    background: var(--terra);
+    color: var(--white);
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px;
+    white-space: nowrap; flex-shrink: 0; align-self: flex-start; margin-top: 4px;
+  }
+  .media-body { flex: 1; }
+  .media-body h3 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 6px; }
+  .media-body p { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
+  .media-link {
+    display: inline-block;
+    color: var(--terra); font-weight: 600; font-size: 13px;
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--terra);
+  }
+  .community-card {
+    background: #F0FAF0;
+    border: 2px solid #B8DABB;
+    border-radius: 8px;
+    padding: 24px 28px;
+    max-width: 680px;
+    margin: 20px auto 0;
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  }
+  .community-icon { font-size: 36px; flex-shrink: 0; }
+  .community-body h3 { font-size: 16px; font-weight: 700; color: var(--leaf); margin-bottom: 4px; }
+  .community-body p { font-size: 13.5px; color: #3A5C38; }
+  .community-body a { color: var(--leaf); font-weight: 600; }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--terra);
+    color: var(--white);
+    text-align: center;
+    padding: 72px 24px;
+  }
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4.5vw, 44px);
+    font-weight: 900; margin-bottom: 14px;
+  }
+  .cta-section p { font-size: 16px; opacity: 0.88; margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .cta-contact {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 32px;
+  }
+  .cta-contact-item {
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    border-radius: 6px;
+    padding: 14px 24px;
+    text-align: left;
+  }
+  .cta-contact-item .lbl { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; margin-bottom: 3px; }
+  .cta-contact-item .val { font-size: 16px; font-weight: 600; }
+  .cta-contact-item a { color: var(--white); text-decoration: none; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--white);
+    color: var(--terra);
+    font-weight: 700; font-size: 15px;
+    padding: 14px 40px; border-radius: 4px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bark);
+    color: #8A7060;
+    text-align: center;
+    padding: 24px 16px;
+    font-size: 12.5px;
+  }
+  footer a { color: var(--terra-lt); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .trust-sep { display: none; }
+    .price-amount { font-size: 44px; }
+    .media-card, .community-card { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div style="position:relative;">
+    <div class="hero-eyebrow">📍 Udumalpet, Coimbatore District</div>
+    <h1>Give Your Students<br>a Day They'll <span>Never Forget</span></h1>
+    <p class="hero-sub">A full-day experiential learning journey rooted in Indian culture, craft, and community — built for school groups.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">🏺 Pottery & Crafts</span>
+      <span class="hero-tag">🥁 Folk Percussion</span>
+      <span class="hero-tag">🌿 Nature Walk</span>
+      <span class="hero-tag">🚜 Tractor Ride</span>
+      <span class="hero-tag">🎮 Traditional Games</span>
+      <span class="hero-tag">🎨 Hands-on Making</span>
+    </div>
+    <a href="#contact" class="hero-cta">Book Your School's Day →</a>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="num">57K+</span> Parents trust Kalaikoodam across Coimbatore</div>
+  <span class="trust-sep">·</span>
+  <div class="trust-item"><span class="num">1</span> Full enriching day per visit</div>
+  <span class="trust-sep">·</span>
+  <div class="trust-item"><span class="num">9</span> Unique hands-on experiences</div>
+  <span class="trust-sep">·</span>
+  <div class="trust-item"><span class="num">Featured</span> in regional media</div>
+</div>
+
+<!-- PROGRAMME -->
+<section class="programme">
+  <div class="container">
+    <div class="section-eyebrow">The Full-Day Programme</div>
+    <h2 class="section-title">A day structured like a village — start to finish</h2>
+    <p class="section-lead">Every element of the day is intentional — moving students from welcome, through exploration and making, to celebration and reflection. Here's exactly what happens:</p>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-num">01</div>
+        <div class="tl-icon">🌅</div>
+        <div class="tl-name">Circle Gathering</div>
+        <div class="tl-desc">A warm, grounding welcome to Kalaikoodam — introducing its philosophy, the people behind it, and the learning journey ahead for the day.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-num">02</div>
+        <div class="tl-icon">🗺️</div>
+        <div class="tl-name">Exploration Walk</div>
+        <div class="tl-desc">Students discover artisan crafts, cultural collections, traditional objects and stories gathered from across India — a living museum experience.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-num">03</div>
+        <div class="tl-icon">🚜</div>
+        <div class="tl-name">Tractor Ride</div>
+        <div class="tl-desc">A joyful ride through the natural landscape and surroundings of Kalaikoodam — giving students a tangible connection to the land.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-num">04</div>
+        <div class="tl-icon">🏺</div>
+        <div class="tl-name">Village Skills Lab</div>
+        <div class="tl-desc">Students get their hands into pottery, natural colour-making, tie & dye, palm-leaf craft, and artisan-led activities — guided by real craftspeople.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-num">05</div>
+        <div class="tl-icon">🌿</div>
+        <div class="tl-name">Community Build Challenge</div>
+        <div class="tl-desc">Teams collaborate to create using natural materials — a challenge that builds communication, creativity, and problem-solving under the open sky.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-num">06</div>
+        <div class="tl-icon">🥁</div>
+        <div class="tl-name">Rhythm & Percussion</div>
+        <div class="tl-desc">Students experience the collective power of Parai, Thappu, and folk musical traditions — through body percussion and live artisan demonstration.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-num">07</div>
+        <div class="tl-icon">🤸</div>
+        <div class="tl-name">Traditional Games Festival</div>
+        <div class="tl-desc">Kabaddi, Nondi, Uriyadi, Kummi, Tug of War and more — community games that our grandparents played, now alive again for this generation.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-num">08</div>
+        <div class="tl-icon">🎉</div>
+        <div class="tl-name">Village Celebration</div>
+        <div class="tl-desc">A joyful culmination of movement, rhythm, play and cultural expression — a moment where the whole group comes together in shared celebration.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-num">09</div>
+        <div class="tl-icon">💡</div>
+        <div class="tl-name">Carrying Forward</div>
+        <div class="tl-desc">Each student reflects on one experience, value, or learning to take back into everyday life — turning the day into a lasting memory and lesson.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LEARNING OUTCOMES -->
+<section class="outcomes">
+  <div class="container">
+    <div class="section-eyebrow" style="color:#F09070;">Learning Outcomes</div>
+    <h2 class="section-title">What students take back to school</h2>
+    <p class="section-lead">Kalaikoodam is designed to develop the whole child — not just skills for exams, but capacities for life.</p>
+    <div class="outcomes-grid">
+      <div class="outcome-card">
+        <div class="outcome-icon">🎯</div>
+        <div class="outcome-title">Learning Through Experience</div>
+        <div class="outcome-body">Every activity is participation-first — students don't just observe, they do. Concepts stick because they're felt, not just heard.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">🏛️</div>
+        <div class="outcome-title">Heritage & Cultural Awareness</div>
+        <div class="outcome-body">Connection to traditional knowledge, Indian craftsmanship, and folk wisdom — helping students understand where they come from.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">🤝</div>
+        <div class="outcome-title">Collaboration & Communication</div>
+        <div class="outcome-body">Group challenges and games build real teamwork skills in an unstructured environment away from the classroom.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">✋</div>
+        <div class="outcome-title">Creativity Through Making</div>
+        <div class="outcome-body">When students make something with their own hands — pottery, colour, craft — their confidence and creative thinking expand.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">🥁</div>
+        <div class="outcome-title">Rhythm, Movement & Expression</div>
+        <div class="outcome-body">Music and movement develop coordination, self-expression, and a sense of collective joy that classroom learning rarely provides.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">🌱</div>
+        <div class="outcome-title">Connection with Self</div>
+        <div class="outcome-body">The reflection session helps students build the habit of meaning-making — carrying a value or insight into their everyday life.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <div class="container">
+    <div class="section-eyebrow">School Partnership Pricing</div>
+    <h2 class="section-title">Simple, transparent pricing for schools</h2>
+    <p class="section-lead">We've created a special school rate so more students can experience Kalaikoodam without budget being a barrier.</p>
+    <div class="price-box">
+      <div class="price-header">
+        <div>
+          <div class="price-header-title">School Group Rate</div>
+        </div>
+        <div class="price-badge">50% off regular pricing</div>
+      </div>
+      <div class="price-body">
+        <div class="price-main">
+          <div class="price-amount">₹1,500</div>
+          <div class="price-per">per student<br>for the full day</div>
+        </div>
+        <div class="price-was">Regular public price: <s>₹3,000 per student</s> — Schools get 50% off</div>
+        <div class="price-includes">
+          <div class="price-includes-title">What's included in the full day</div>
+          <div class="price-include-item"><span class="chk">✔</span> Circle Gathering & Exploration Walk</div>
+          <div class="price-include-item"><span class="chk">✔</span> Tractor Ride through Kalaikoodam's landscape</div>
+          <div class="price-include-item"><span class="chk">✔</span> Village Skills Lab — Pottery, Tie & Dye, Palm-leaf Craft & more</div>
+          <div class="price-include-item"><span class="chk">✔</span> Community Build Challenge</div>
+          <div class="price-include-item"><span class="chk">✔</span> Rhythm & Percussion with Parai and Thappu</div>
+          <div class="price-include-item"><span class="chk">✔</span> Traditional Games Festival — Kabaddi, Nondi, Uriyadi & more</div>
+          <div class="price-include-item"><span class="chk">✔</span> Village Celebration & Carrying Forward session</div>
+          <div class="price-include-item"><span class="chk">✔</span> All materials, facilitators, and artisan guidance for the day</div>
+        </div>
+        <div class="price-note">* Transportation to and from Kalaikoodam is to be arranged by the school.</div>
+      </div>
+    </div>
+    <div class="min-note">
+      📋 Minimum group size: <strong>30 students</strong> per visit &nbsp;|&nbsp; Bookings are on a first-come, first-served basis
+    </div>
+  </div>
+</section>
+
+<!-- WHY KALAIKOODAM -->
+<section class="why">
+  <div class="container">
+    <div class="section-eyebrow">Why Schools Choose Kalaikoodam</div>
+    <h2 class="section-title">More than a field trip</h2>
+    <p class="section-lead">Kalaikoodam is built around the idea that culture, creativity, and community are not extras — they are the foundation of a whole education.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-card-icon">🌾</div>
+        <div class="why-card-title">Rooted in Tamil Culture</div>
+        <div class="why-card-body">Every activity — from folk percussion to traditional games to crafts — is drawn from living Tamil and Indian heritage. Students see their own culture honoured and made exciting.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">👐</div>
+        <div class="why-card-title">Artisan-Led, Not Textbook-Led</div>
+        <div class="why-card-body">Students learn pottery, natural colour-making, and palm-leaf craft directly from artisans — the kind of knowledge that cannot be found in a classroom.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">🏕️</div>
+        <div class="why-card-title">Outdoors & Immersive All Day</div>
+        <div class="why-card-body">The natural setting of Kalaikoodam means students are away from screens and desks — moving, making, playing, and discovering in an environment that energises them.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">🧠</div>
+        <div class="why-card-title">Curriculum-Aligned Outcomes</div>
+        <div class="why-card-body">The programme is structured to develop collaboration, creativity, cultural literacy, and self-reflection — competencies that complement school learning and NEP 2020 goals.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">🤗</div>
+        <div class="why-card-title">Safe, Structured & Joyful</div>
+        <div class="why-card-body">The day is fully facilitated with a clear arc — from opening circle to closing reflection — giving teachers confidence and students a sense of belonging throughout.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">🌍</div>
+        <div class="why-card-title">Trusted by 57K+ Families</div>
+        <div class="why-card-body">Kalaikoodam has built one of Coimbatore's largest parent communities — a mark of trust earned through consistent, meaningful experiences for children.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section style="background: var(--white); padding: 72px 24px;">
+  <div class="container">
+    <div class="section-eyebrow">Getting Here</div>
+    <h2 class="section-title">Located in the heart of nature, Coimbatore district</h2>
+    <p class="section-lead">Kalaikoodam is set in a natural, open environment — the journey itself is part of the experience for students.</p>
+    <div class="location-wrap">
+      <div class="location-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1000!2d77.218530!3d10.931048!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDU1JzUxLjgiTiA3N8KwMTMnMDYuNyJF!5e0!3m2!1sen!2sin!4v1700000000000"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div class="location-info">
+        <h3>Kalaikoodam Art Village</h3>
+        <p>Situated in Udumalpet area, Coimbatore district, Tamil Nadu — accessible from Coimbatore city and surrounding towns.</p>
+        <p>The natural, village-style setting is part of what makes the day so different from a conventional school trip. Students arrive in a world that feels unlike their everyday environment.</p>
+        <a href="https://www.google.com/maps/place/10.931048,77.218530" target="_blank" class="location-link">Open in Google Maps →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA & COMMUNITY -->
+<section class="media">
+  <div class="container">
+    <div class="section-eyebrow">As Seen In & Community</div>
+    <h2 class="section-title">Recognised & trusted across Coimbatore</h2>
+    <p class="section-lead">Kalaikoodam's work with children and communities has earned attention well beyond its walls.</p>
+
+    <div class="media-card">
+      <div class="media-badge">📰 Media Feature</div>
+      <div class="media-body">
+        <h3>Featured in Regional Media</h3>
+        <p>Kalaikoodam's experiential learning model and cultural preservation work has been covered by media — recognising its unique impact on children and communities in the region.</p>
+        <a href="https://www.instagram.com/p/DZREEnLE0hJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="media-link">View the feature →</a>
+      </div>
+    </div>
+
+    <div class="community-card">
+      <div class="community-icon">💬</div>
+      <div class="community-body">
+        <h3>57,000+ Parents Trust Kalaikoodam</h3>
+        <p>Kalaikoodam has built one of Coimbatore's largest parent WhatsApp communities — over 57,000 families who have trusted the organisation with their children's experiences. <a href="https://chat.whatsapp.com/KaiChkRg8VLJQ2S3S3IFUb" target="_blank">Join the community →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2>Ready to bring your school to Kalaikoodam?</h2>
+    <p>Reach out to us directly to check availability, ask questions, or book your school's visit. We're happy to walk you through the programme.</p>
+    <div class="cta-contact">
+      <div class="cta-contact-item">
+        <div class="lbl">Call or WhatsApp</div>
+        <div class="val"><a href="tel:9629843122">+91 96298 43122</a></div>
+      </div>
+      <div class="cta-contact-item">
+        <div class="lbl">Email</div>
+        <div class="val"><a href="mailto:noormohammed.j@gmail.com">noormohammed.j@gmail.com</a></div>
+      </div>
+      <div class="cta-contact-item">
+        <div class="lbl">Instagram</div>
+        <div class="val"><a href="https://www.instagram.com/kalaikoodam.artvillage/" target="_blank">@kalaikoodam.artvillage</a></div>
+      </div>
+    </div>
+    <a href="mailto:noormohammed.j@gmail.com" class="cta-btn">Send an Enquiry</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Kalaikoodam Art Village &nbsp;·&nbsp; Udumalpet, Coimbatore District, Tamil Nadu &nbsp;·&nbsp;
+  <a href="https://www.instagram.com/kalaikoodam.artvillage/" target="_blank">Instagram</a>
+  &nbsp;·&nbsp; School enquiries: <a href="mailto:noormohammed.j@gmail.com">noormohammed.j@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
